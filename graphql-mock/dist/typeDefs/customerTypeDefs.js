@@ -87,6 +87,7 @@ type GpLinked {
   isFavorite: Boolean
   customerCTA: String
   isBonusCustomer: Boolean!
+  isFirstSaleDone: Boolean!
   createdAt: String!
   updatedAt: String!
   customerDetails: CustomerDetails
@@ -221,6 +222,7 @@ input GpLinkedInput {
   gpId: String!
   isVerifiedByGP: Boolean!
   isFavorite: Boolean
+  isFirstSaleDone: Boolean!
   customerCTA: String
   isBonusCustomer: Boolean!
   createdAt: String!

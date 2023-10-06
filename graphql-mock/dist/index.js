@@ -2,10 +2,11 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { customerTypeDefs } from './typeDefs/customerTypeDefs.js';
 import { resolvers } from './resolvers.js';
+import { recommendationTypeDefs } from './typeDefs/recommendationTypeDefs.js';
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({
-    typeDefs: [customerTypeDefs],
+    typeDefs: [customerTypeDefs, recommendationTypeDefs],
     resolvers: resolvers
 });
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
