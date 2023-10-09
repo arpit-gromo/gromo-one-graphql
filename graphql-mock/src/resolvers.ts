@@ -1,5 +1,6 @@
 import { customers } from "./mockData/customers.js";
 import { categorySpecificRecommendationData, recommData, topSellingProductData } from "./mockData/recommData.js";
+import { widgets } from "./mockData/widgets.js";
 
 const standardResp = {
     success: true,
@@ -67,8 +68,15 @@ export const resolvers = {
         getTopSellingProducts: async(_, {gpId},) => {
             standardResp["data"] = topSellingProductData;
             return standardResp;
-        }
+        },
 
+
+
+        // Widget API
+        getAddCustomerWidget: async(_, __,) => {
+            standardResp["data"] = widgets;
+            return standardResp;
+        }
 
         
     },
