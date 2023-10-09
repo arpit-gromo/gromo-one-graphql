@@ -91,14 +91,18 @@ export const resolvers = {
         createCustomer: async(_, {input},) => {
             customers.push(input);
             
-            standardResp["data"] = [customers.find(customer => customer.primaryPhoneNumber === input.primaryPhoneNumber)]
-            console.log("resp >> ", standardResp);
+            standardResp["data"] = null;
+            return standardResp;
+        },
+        createMultipleCustomer: async(_, {input},) => {
+            customers.push(input);
+            standardResp["data"] = null;
             return standardResp;
         },
         updateCustomer: async(_, {customerUuid, input},) => {
             standardResp["data"] = [customers.find(customer => customer.customerUuid === customerUuid)];
             return standardResp;
-        }
+        },
     }
 }
 

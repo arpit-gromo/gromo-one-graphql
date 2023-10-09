@@ -364,5 +364,6 @@ type Query {
 
 type Mutation {
   createCustomer(input: CustomerInput): CustomerResponse
+  createMultipleCustomer(input: [CustomerInput]): CustomerResponse
   updateCustomer(customerUuid: ID!, input: CustomerUpdateInput): CustomerResponse
 }`;
