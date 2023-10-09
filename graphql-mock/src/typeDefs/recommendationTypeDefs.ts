@@ -45,6 +45,46 @@ type CategorySpecificRecommendationData {
   customerCount: Int!
 }
 
+type TopSellingProductData {
+  productCategory: ProductCategory!,
+  product: Product!,
+}
+
+
+
+
+
+
+
+
+
+
+type RecommendationDataResponse {
+  success: Boolean,
+  message: String,
+  error: String,
+  data: [RecommendationData]
+}
+
+type CategorySpecificRecommendationDataResponse {
+  success: Boolean,
+  message: String,
+  error: String,
+  data: [CategorySpecificRecommendationData]
+}
+
+type TopSellingProductResponse {
+  success: Boolean,
+  message: String,
+  error: String,
+  data: [TopSellingProductData]
+}
+
+
+
+
+
+
 
 
 
@@ -87,27 +127,32 @@ input ProductCategoryInput {
 type Query {
 
   # For You Page - Gaurenteed Sale Customer Recommendation
-  getGaurenteedSaleCustomerRecommendation(gpId: String!) : [RecommendationData!]
+  getGaurenteedSaleCustomerRecommendation(gpId: String!) : RecommendationDataResponse!
   # For You Page - High Earning Customer Recommendation
-  getHighEarningCustomerRecommendation(gpId: String!) : [RecommendationData!]
+  getHighEarningCustomerRecommendation(gpId: String!) : RecommendationDataResponse!
   # For You Page - First Sale Customer Recommendation
-  getFirstSaleCustomerRecommendation(gpId: String!) : [RecommendationData!]
+  getFirstSaleCustomerRecommendation(gpId: String!) : RecommendationDataResponse!
   # For You Page - Lead Rejected Customer Recommendation
-  getLeadRejectedCustomerRecommendation(gpId: String!) : [RecommendationData!]
+  getLeadRejectedCustomerRecommendation(gpId: String!) : RecommendationDataResponse!
   # For You Page - Category Specific Customer Recommendation
-  getCategoryRecommendation(gpId: String!) : [CategorySpecificRecommendationData!]
+  getCategoryRecommendation(gpId: String!) : CategorySpecificRecommendationDataResponse!
 
   #Recommendation for a particular customer linked to a particular gp
-  getCustomerProductRecommendation(gpId: String!, customer_uuid: ID!) : [RecommendationData!]
+  getCustomerProductRecommendation(gpId: String!, customerUuid: ID!) : RecommendationDataResponse!
   
   #Recommendation for a particular product Cateogry linked to a particular gp
-  getCategoryCustomerRecommendation(gpId: String!, productCategoryName: String!) : [RecommendationData!]
+  getCategoryCustomerRecommendation(gpId: String!, productCategoryName: String!) : RecommendationDataResponse!
 
   #Recommendation for a particular product linked to a particular gp
-  getProductCustomerRecommendation(gpId: String!, productId: ID!) : [RecommendationData!]
+  getProductCustomerRecommendation(gpId: String!, productId: ID!) : RecommendationDataResponse!
 
   #Count of recommended customers for the given product linked to a particular gp
   getNoOfRecommendedCustomers(gpId: String!, productId: ID!) : Int!
+
+  #Get Top Selling products for the GP
+  getTopSellingProducts(gpId: String!): TopSellingProductResponse!
+
+  #getCustomerPCProductRecommendation(gpId: String!, customerUuid: ID!, productCategoryName: String!) : Respo!
 
 }
 

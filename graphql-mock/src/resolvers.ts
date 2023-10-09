@@ -1,63 +1,91 @@
 import { customers } from "./mockData/customers.js";
-import { categorySpecificRecommendationData, recommData } from "./mockData/recommData.js";
+import { categorySpecificRecommendationData, recommData, topSellingProductData } from "./mockData/recommData.js";
 
+const standardResp = {
+    success: true,
+    message: "Sample message - Result received successfully",
+    error: null
+};
 
 export const resolvers = {
+
+
+
     Query: {
-        getAllCustomers: () => customers,
-        getCustomerById: async (_, { customer_uuid }, )  => {
-            return customers.find((customer) => customer.customer_uuid === customer_uuid)
+        
+        // Customer APIs
+        getAllCustomersForGp: async (_, { gpId }, )  => {
+            standardResp["data"] = customers;
+            return standardResp;
         },
+        getCustomerById: async (_, { customerUuid }, )  => {
+            standardResp["data"] = customers.find((customer) => customer.customerUuid === customerUuid)
+            return standardResp;
+        },
+
+
+
+
+        // Recommendation APIs
         getGaurenteedSaleCustomerRecommendation: async (_, { gpId }, )  => {
-            return recommData.filter(recom => recom.gpid === gpId && recom.isGaurenteedSale);
+            standardResp["data"] = recommData.filter(recom => recom.gpid === gpId && recom.isGaurenteedSale);
+            return standardResp;
         },
         getHighEarningCustomerRecommendation: async (_, { gpId }, )  => {
-            return recommData.filter(recom => recom.gpid === gpId && recom.isHighEarning);
+            standardResp["data"] = recommData.filter(recom => recom.gpid === gpId && recom.isHighEarning);
+            return standardResp;
         },
         getFirstSaleCustomerRecommendation: async (_, { gpId }, )  => {
-            return recommData.filter(recom => recom.gpid === gpId && recom.customer.isFirstSaleDone);
+            standardResp["data"] = recommData.filter(recom => recom.gpid === gpId && recom.customer.isFirstSaleDone);
+            // console.log(`getFirstSaleCustomerRecommendation = `, standardResp);
+            return standardResp;
         },
         getLeadRejectedCustomerRecommendation: async (_, { gpId }, )  => {
-            return recommData.filter(recom => recom.gpid === gpId);
+            standardResp["data"] = recommData.filter(recom => recom.gpid === gpId);
+            return standardResp;
         },
         getCategoryRecommendation: async (_, { gpId }, )  => {
-            return categorySpecificRecommendationData;
+            standardResp["data"] = categorySpecificRecommendationData;
+            return standardResp;
         },
-        getCustomerProductRecommendation: async (_, { gpId, customer_uuid }, )  => {
-            return recommData.filter(recom => recom.gpid === gpId && recom.customer.customerUuid===customer_uuid);
+        getCustomerProductRecommendation: async (_, { gpId, customerUuid }, )  => {
+            standardResp["data"] = recommData.filter(recom => recom.gpid === gpId && recom.customer.customerUuid===customerUuid);
+            return standardResp;
         },
         getCategoryCustomerRecommendation: async (_, { gpId, productCategoryName }, )  => {
-            return recommData.filter(recom => recom.gpid === gpId && recom.productCategory.name===productCategoryName);
+            standardResp["data"] = recommData.filter(recom => recom.gpid === gpId && recom.productCategory.name===productCategoryName);
+            return standardResp;
         },
         getProductCustomerRecommendation: async (_, { gpId, productId }, )  => {
-            return recommData.filter(recom => recom.gpid === gpId && recom.product.id===productId);
+            standardResp["data"] = recommData.filter(recom => recom.gpid === gpId && recom.product.id===productId);
+            return standardResp;
         },
-        getNoOfRecommendedCustomers: async (_, { gpId, productId }, )  => Math.round(Math.random()*10),
+        getNoOfRecommendedCustomers: async (_, { gpId, productId }, )  => {
+            standardResp["data"] = Math.round(Math.random()*10);
+            return standardResp;
+        },
+        getTopSellingProducts: async(_, {gpId},) => {
+            standardResp["data"] = topSellingProductData;
+            return standardResp;
+        }
 
-        // # For You Page - Gaurenteed Sale Customer Recommendation
-        // getGaurenteedSaleCustomerRecommendation(gpid: String!) : [RecommendationData!]
-        // # For You Page - High Earning Customer Recommendation
-        // getHighEarningCustomerRecommendation(gpid: String!) : [RecommendationData!]
-        // # For You Page - First Sale Customer Recommendation
-        // getFirstSaleCustomerRecommendation(gpid: String!) : [RecommendationData!]
-        // # For You Page - Lead Rejected Customer Recommendation
-        // getLeadRejectedCustomerRecommendation(gpid: String!) : [RecommendationData!]
-        // # For You Page - Category Specific Customer Recommendation
-        // getCategoryRecommendation(gpid: String!) : [RecommendationData!]
-      
-        // #Recommendation for a particular customer linked to a particular gp
-        // getCustomerProductRecommendation(gpid: String!, customer_uuid: ID!) : [RecommendationData!]
+
         
-        // #Recommendation for a particular product Cateogry linked to a particular gp
-        // getCategoryCustomerRecommendation(gpid: String!, productCategoryName: String!) : [RecommendationData!]
-      
-        // #Recommendation for a particular product linked to a particular gp
-        // getProductCustomerRecommendation(gpid: String!, productId: ID!) : [RecommendationData!]
-      
-        // #Count of recommended customers for the given product linked to a particular gp
-        // getNoOfRecommendedCustomers(gpid: String!, productId: ID!) : [RecommendationData!]
+    },
+    Mutation : {
 
-        // getCustomerByGpId: (gpId: string) => customers.find((customer) => customer.gpLinked === gpId),
+         // Customer APIs
+        createCustomer: async(_, {input},) => {
+            customers.push(input);
+            
+            standardResp["data"] = [customers.find(customer => customer.primaryPhoneNumber === input.primaryPhoneNumber)]
+            console.log("resp >> ", standardResp);
+            return standardResp;
+        },
+        updateCustomer: async(_, {customerUuid, input},) => {
+            standardResp["data"] = [customers.find(customer => customer.customerUuid === customerUuid)];
+            return standardResp;
+        }
     }
 }
 

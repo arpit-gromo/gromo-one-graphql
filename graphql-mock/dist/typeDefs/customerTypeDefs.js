@@ -94,7 +94,7 @@ type GpLinked {
 }
 
 type Customer {
-  customer_uuid: ID!
+  customerUuid: ID
   firstName: String
   middleName: String
   lastName: String
@@ -140,6 +140,31 @@ type MetaData {
   isMigrated: Boolean!
   migrationSource: String!
 }
+
+
+
+
+
+
+type CustomerResponse {
+  success: Boolean
+  message: String
+  error: String
+  data: [Customer]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 input AddressInput {
   addressLine1: String
@@ -231,7 +256,6 @@ input GpLinkedInput {
 }
 
 input CustomerInput {
-  customer_uuid: ID!
   firstName: String
   middleName: String
   lastName: String
@@ -278,16 +302,59 @@ input MetaDataInput {
   migrationSource: String
 }
 
-# Define the root Query and Mutation types
-type Query {
-  getCustomerById(customer_uuid: ID!): Customer
-  getAllCustomers: [Customer]
+input CustomerUpdateInput {
+  firstName: String
+  middleName: String
+  lastName: String
+  emailId: String
+  isEmailVerified: Boolean
+  secondaryPhoneNumber: String
+  isCommConsented: Boolean
+  profileImage: String
+  dob: String
+  gender: String
+  prefix: String
+  maritalStatus: String
+  fatherName: String
+  motherName: String
+  highestEducation: String
+  isSmoker: Boolean
+  permanentAddress: AddressInput
+  communicationAddress: AddressInput
+  professionalDetails: ProfessionalDetailsInput
+  financialDetails: FinancialDetailsInput
+  kycDetails: KycDetailsInput
+  kycStatus: String
+  kycRejectReason: String
+  campaignInfo: CampaignInfoInput
+  agreedTnC: AgreedTnCInput
+  referredBy: String
+  isCustomerGP: Boolean
+  metaData: MetaDataInput
+  gpLinked: [GpLinkedInput!]
 }
 
-# type Mutation {
-#   createCustomer(input: CustomerInput): Customer
-#   updateCustomer(id: ID!, input: CustomerInput): Customer
-#   deleteCustomer(id: ID!): Customer
-# }
 
-`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Define the root Query and Mutation types
+type Query {
+  getCustomerById(customerUuid: ID!): CustomerResponse
+  getAllCustomersForGp(gpId: String!): CustomerResponse
+}
+
+type Mutation {
+  createCustomer(input: CustomerInput): CustomerResponse
+  updateCustomer(customerUuid: ID!, input: CustomerUpdateInput): CustomerResponse
+}`;

@@ -113,3 +113,50 @@ export const recommData = [
         score: 3
     }
 ];
+export const topSellingProductData = [
+    {
+        productCategory: {
+            id: "prodCat1",
+            name: "Saving Bank Account",
+            amountUpto: 10000,
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+        },
+        product: {
+            id: "prod1",
+            name: "SBI Account",
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+            amount: 2200,
+            gcAmount: 1900
+        }
+    },
+    {
+        productCategory: {
+            id: "prodCat2",
+            name: "Demat Account",
+            amountUpto: 11000,
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+        },
+        product: {
+            id: "prod2",
+            name: "Motilal Oswal",
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+            amount: 2200,
+            gcAmount: 1500
+        }
+    },
+    {
+        productCategory: {
+            id: "prodCat3",
+            name: "Loans",
+            amountUpto: 50000,
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+        },
+        product: {
+            id: "prod2",
+            name: "Kredbee",
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+            amount: 22000,
+            gcAmount: 1800
+        }
+    }
+];
