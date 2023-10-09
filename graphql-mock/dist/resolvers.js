@@ -1,5 +1,5 @@
 import { customers } from "./mockData/customers.js";
-import { categorySpecificRecommendationData, recommData, topSellingProductData } from "./mockData/recommData.js";
+import { allProductRecommendationData, bestRecommendationData, categorySpecificRecommendationData, recommData, topSellingProductData } from "./mockData/recommData.js";
 import { widgets } from "./mockData/widgets.js";
 const standardResp = {
     success: true,
@@ -62,6 +62,16 @@ export const resolvers = {
         },
         getTopSellingProducts: async (_, { gpId }) => {
             standardResp["data"] = topSellingProductData;
+            return standardResp;
+        },
+        getBestProductRecommendation: async (_, { gpId, customerUuid }) => {
+            standardResp["data"] = bestRecommendationData;
+            return standardResp;
+        },
+        getAllProductRecommendations: async (_, { gpId, customerUuid }) => {
+            // This is for a particular user, when he doesn't select any category in the filter,
+            // every product receommendation will be shown categry wise.
+            standardResp["data"] = allProductRecommendationData;
             return standardResp;
         },
         // Widget API

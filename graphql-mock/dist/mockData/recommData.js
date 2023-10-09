@@ -27,6 +27,168 @@ export const categorySpecificRecommendationData = [
         customerCount: 7
     }
 ];
+// This is for a particular user, when he doesn't select any category in the filter,
+// 2 of the best product receommendation will be shown in desc order.
+export const bestRecommendationData = [
+    {
+        productCategory: {
+            id: "prodCat1",
+            name: "Saving Bank Account",
+            amountUpto: 6000,
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+        },
+        product: [{
+                id: "prod1",
+                name: "911 Kotak Bank",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2500,
+                gcAmount: 2000
+            },
+            {
+                id: "prod2",
+                name: "SBI Account",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2200,
+                gcAmount: 1900
+            }],
+    },
+    {
+        productCategory: {
+            id: "prodCat2",
+            name: "Credit Card",
+            amountUpto: 6000,
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+        },
+        product: [{
+                id: "prod1",
+                name: "Axis Magnus Card",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2500,
+                gcAmount: 2000
+            },
+            {
+                id: "prod2",
+                name: "HDFC Infinia",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2200,
+                gcAmount: 1900
+            }],
+    },
+    {
+        productCategory: {
+            id: "prodCat3",
+            name: "Demat Account",
+            amountUpto: 6000,
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+        },
+        product: [{
+                id: "prod5",
+                name: "Zerodha",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2500,
+                gcAmount: 2000
+            },
+            {
+                id: "prod6",
+                name: "Motilal Oswal",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2200,
+                gcAmount: 1900
+            }],
+    },
+];
+// This is for a particular user, when he doesn't select any category in the filter,
+// every product receommendation will be shown categry wise.
+export const allProductRecommendationData = [
+    {
+        productCategory: {
+            id: "prodCat1",
+            name: "Saving Bank Account",
+            amountUpto: 6000,
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+        },
+        product: [{
+                id: "prod1",
+                name: "911 Kotak Bank",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2500,
+                gcAmount: 2000
+            },
+            {
+                id: "prod2",
+                name: "SBI Account",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2200,
+                gcAmount: 1900
+            },
+            {
+                id: "prod21",
+                name: "ICICI Account",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2200,
+                gcAmount: 1900
+            },
+            {
+                id: "prod22",
+                name: "IDFC Account",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2200,
+                gcAmount: 1900
+            }],
+    },
+    {
+        productCategory: {
+            id: "prodCat2",
+            name: "Credit Card",
+            amountUpto: 6000,
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+        },
+        product: [{
+                id: "prod5",
+                name: "Axis Magnus Card",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2500,
+                gcAmount: 2000
+            },
+            {
+                id: "prod6",
+                name: "HDFC Infinia",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2200,
+                gcAmount: 1900
+            },
+            {
+                id: "prod7",
+                name: "Amex Primia Card",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2500,
+                gcAmount: 2000
+            }
+        ],
+    },
+    {
+        productCategory: {
+            id: "prodCat3",
+            name: "Demat Account",
+            amountUpto: 6000,
+            iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+        },
+        product: [{
+                id: "prod5",
+                name: "Zerodha",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2500,
+                gcAmount: 2000
+            },
+            {
+                id: "prod6",
+                name: "Motilal Oswal",
+                iconImageURL: "https://fastly.picsum.photos/id/418/200/300.jpg?hmac=T7cC_OCVJnIk98mcvhuKBWancCeGl2KcyuSBTCYE-QM",
+                amount: 2200,
+                gcAmount: 1900
+            }],
+    },
+];
 export const recommData = [
     {
         gpid: "gp1",

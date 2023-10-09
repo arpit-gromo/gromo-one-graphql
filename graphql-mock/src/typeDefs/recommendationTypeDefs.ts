@@ -50,6 +50,12 @@ type TopSellingProductData {
   product: Product!,
 }
 
+type BestRecommData {
+  productCategory: ProductCategory!,
+  product: [Product!],
+}
+
+
 
 
 
@@ -79,6 +85,14 @@ type TopSellingProductResponse {
   error: String,
   data: [TopSellingProductData]
 }
+
+type BestRecommendationDataResponse {
+  success: Boolean,
+  message: String,
+  error: String,
+  data: [BestRecommData]
+}
+
 
 
 
@@ -152,45 +166,13 @@ type Query {
   #Get Top Selling products for the GP
   getTopSellingProducts(gpId: String!): TopSellingProductResponse!
 
-  #getCustomerPCProductRecommendation(gpId: String!, customerUuid: ID!, productCategoryName: String!) : Respo!
+  # Get 2 of the most recommended products for a customer linked to a gp per category
+  getBestProductRecommendation(gpId: String!, customerUuid: ID!) : BestRecommendationDataResponse!
+
+  # Get All Recommendation for a customer linked to a gp per category
+  getAllProductRecommendations(gpId: String!, customerUuid: ID!): BestRecommendationDataResponse!
 
 }
-
-
-
-# type Query {
-#   getRecommendationByGPID(gpid: $gpid) : 
-# }
-
-#   getRecommendationByGPID(gpid: $gpid) : getRecommendationByGPID
-  
-#   {
-#     gpid
-#     customer {
-#       customerUuid
-#       customerFullName
-#       isFirstSaleDone
-#       creditScore
-#     }
-#     productCategory {
-#       id
-#       name
-#       amountUpto
-#     }
-#     product {
-#       id
-#       name
-#       amount
-#       gcAmount
-#     }
-#     productSold
-#     isHighEarning
-#     isPreapproved
-#     isGaurenteedSale
-#     leadStatus
-#     score
-#   }
-# }
 
 
 `;
