@@ -154,6 +154,13 @@ type CustomerResponse {
 }
 
 
+type AddedCustomerResponse {
+  success: Boolean
+  message: String
+  error: String
+  data: [Boolean]
+}
+
 
 
 
@@ -352,6 +359,7 @@ input CustomerUpdateInput {
 type Query {
   getCustomerById(customerUuid: ID!): CustomerResponse
   getAllCustomersForGp(gpId: String!): CustomerResponse
+  getAddedCustomers(input: [String!]): AddedCustomerResponse
 }
 
 type Mutation {

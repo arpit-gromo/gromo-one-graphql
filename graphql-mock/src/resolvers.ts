@@ -23,6 +23,11 @@ export const resolvers = {
             standardResp["data"] = customers.find((customer) => customer.customerUuid === customerUuid)
             return standardResp;
         },
+        getAddedCustomers: async (_, { input }) => {
+            standardResp["data"] = input.map(number => customers.find(customer => number === customer.primaryPhoneNumber)? true:false)
+            console.log({...standardResp});
+            return standardResp;
+        },
 
 
 
