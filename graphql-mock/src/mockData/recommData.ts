@@ -222,7 +222,7 @@ export const recommData = [
         productSold: 0,
         isHighEarning: true,
         isPreapproved: true,
-        isGaurenteedSale: false,
+        isGaurenteedSale: true,
         leadStatus: null,
         score: 1.2
     },
@@ -276,7 +276,7 @@ export const recommData = [
             gcAmount: 1900
         },
         productSold: 0,
-        isHighEarning: true,
+        isHighEarning: false,
         isPreapproved: true,
         isGaurenteedSale: false,
         leadStatus: null,
