@@ -94,7 +94,12 @@ type BestRecommendationDataResponse {
 }
 
 
-
+type NoOfRecommCustDataResponse {
+  success: Boolean,
+  message: String,
+  error: String,
+  data: [Int!]
+}
 
 
 
@@ -161,7 +166,7 @@ type Query {
   getProductCustomerRecommendation(gpId: String!, productId: ID!) : RecommendationDataResponse!
 
   #Count of recommended customers for the given product linked to a particular gp
-  getNoOfRecommendedCustomers(gpId: String!, productId: ID!) : Int!
+  getNoOfRecommendedCustomers(gpId: String!, productId: ID!) : NoOfRecommCustDataResponse!
 
   #Get Top Selling products for the GP
   getTopSellingProducts(gpId: String!): TopSellingProductResponse!
