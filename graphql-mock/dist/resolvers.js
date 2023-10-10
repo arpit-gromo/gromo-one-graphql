@@ -45,7 +45,7 @@ export const resolvers = {
             return standardResp;
         },
         getCustomerProductRecommendation: async (_, { gpId, customerUuid }) => {
-            standardResp["data"] = recommData.filter(recom => recom.gpid === gpId && recom.customer.customerUuid === customerUuid);
+            standardResp["data"] = recommData;
             return standardResp;
         },
         getCategoryCustomerRecommendation: async (_, { gpId, productCategoryName }) => {
